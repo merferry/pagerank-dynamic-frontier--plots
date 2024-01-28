@@ -1,6 +1,6 @@
 set term pdf
 set terminal pdf size 10in,6in font ",20"
-set output '5050-error-all.pdf'
+set output '8020-error-all.pdf'
 
 
 ## Set global styles
@@ -24,10 +24,11 @@ set multiplot layout 3,4 margins 0.06,0.98,0.10,0.95 spacing 0.06,0.07
 
 
 ## Set line styles
-set style line  1 linewidth 2 linetype 7 pointtype 5 dashtype 1
-set style line  2 linewidth 2 linetype 6 pointtype 9 dashtype 1
-set style line  3 linewidth 2 linetype 1 pointtype 2 dashtype 1
+set style line  1 linewidth 2 linetype 6 pointtype 5 dashtype 1
+set style line  2 linewidth 2 linetype 7 pointtype 9 dashtype 1
+set style line  3 linewidth 2 linetype 2 pointtype 2 dashtype 1
 set style line  4 linewidth 2 linetype 8 pointtype 3 dashtype 1
+set style line  5 linewidth 2 linetype 8 pointtype 3 dashtype 2
 
 
 ## Draw plot
@@ -37,11 +38,12 @@ files='indochina-2004 arabic-2005 uk-2005 webbase-2001 it-2004 sk-2005 com-LiveJ
 do for [i=1:words(files)] {
 set title word(files, i) offset 0,-0.8
 if (i>=9) { set xtics rotate by 45 right }
-plot '5050/'.word(files, i).'.csv' \
-       using 4:($10) title 'Static'            linestyle 1 with linespoints, \
-    '' using 4:($11) title 'Naive-dynamic'     linestyle 2 with linespoints, \
-    '' using 4:($12) title 'Dynamic Traversal' linestyle 3 with linespoints, \
-    '' using 4:($13) title 'Dynamic Frontier'  linestyle 4 with linespoints,
+plot '8020/'.word(files, i).'.csv' \
+       using 4:($10) title 'Static' linestyle 1 with linespoints, \
+    '' using 4:($11) title 'ND'     linestyle 2 with linespoints, \
+    '' using 4:($12) title 'DT'     linestyle 3 with linespoints, \
+    '' using 4:($13) title 'DF'     linestyle 4 with linespoints, \
+    '' using 4:($14) title 'DF-P'   linestyle 5 with linespoints
 }
 unset multiplot
 
