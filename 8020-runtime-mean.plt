@@ -1,5 +1,5 @@
 set term pdf
-set terminal pdf size 4in,3.6in
+set terminal pdf size 3.5in,3.2in
 set output '8020-runtime-mean.pdf'
 
 
@@ -36,8 +36,9 @@ plot '8020.csv' \
   '' using 4:($5 /1000):($4==1e-7? sprintf("%.1f", $5 /$5 ) : "") with labels notitle offset character 2.2,character 0.6 textcolor linetype 6, \
   '' using 4:($5 /1000):($4>=1e-6 && $4 <1e-2? sprintf("%.1f", $5 /$5 ) : "") with labels notitle offset character -1.2,character 0.8 textcolor linetype 6, \
   '' using 4:($6 /1000):($4==1e-7? sprintf("%.1f", $5 /$6 ) : "") with labels notitle offset character 2.2,character -0.6 textcolor linetype 7, \
-  '' using 4:($6 /1000):($4>=1e-6 && $4 <1e-3? sprintf("%.1f", $5 /$6 ) : "") with labels notitle offset character -1.2,character -0.6 textcolor linetype 7, \
-  '' using 4:($6 /1000):($4==1e-2? sprintf("%.1f", $5 /$6 ) : "") with labels notitle offset character -1.2,character -0.6 textcolor linetype 7, \
+  '' using 4:($6 /1000):($4>=1e-6 && $4 <1e-4? sprintf("%.1f", $5 /$6 ) : "") with labels notitle offset character -1.2,character -0.6 textcolor linetype 7, \
+  '' using 4:($6 /1000):($4>=1e-4 && $4 <1e-3? sprintf("%.1f", $5 /$6 ) : "") with labels notitle offset character -1.8,character -0.5 textcolor linetype 7, \
+  '' using 4:($6 /1000):($4==1e-2? sprintf("%.1f", $5 /$6 ) : "") with labels notitle offset character -1.9,character -0.5 textcolor linetype 7, \
   '' using 4:($6 /1000):($4==1e-1? sprintf("%.1f", $5 /$6 ) : "") with labels notitle offset character -2.2,character -0.6 textcolor linetype 7, \
   '' using 4:($7 /1000):($4==1e-7? sprintf("%.1f", $5 /$7 ) : "") with labels notitle offset character 2.2,character 0.6 textcolor linetype 2, \
   '' using 4:($7 /1000):($4>=1e-6 && $4 <1e-3? sprintf("%.1f", $5 /$7 ) : "") with labels notitle offset character -2.0,character 0.4 textcolor linetype 2, \

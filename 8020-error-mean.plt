@@ -1,5 +1,5 @@
 set term pdf
-set terminal pdf size 4in,3.6in
+set terminal pdf size 3.5in,3.2in
 set output '8020-error-mean.pdf'
 
 
